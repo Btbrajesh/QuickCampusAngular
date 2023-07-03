@@ -8,6 +8,8 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from "./components/layout/layout.component";
 import { DeskboardComponent } from './components/deskboard/deskboard.component';
+import { Page404Component } from "./components/page404/page404.component";
+import { Page500Component } from "./components/page500/page500.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DeskboardComponent } from './components/deskboard/deskboard.component';
     SidebarComponent,
     LoginComponent,
     LayoutComponent,
-    DeskboardComponent
+    DeskboardComponent,
+    Page404Component,
+    Page500Component
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import { DeskboardComponent } from './components/deskboard/deskboard.component';
   HeaderComponent,
   FooterComponent,
   SidebarComponent,
-  LayoutComponent
+  LayoutComponent,
+  Page404Component,
+  Page500Component
   ],
 })
 export class SharedModule {}

@@ -42,11 +42,16 @@ export class LoginComponent implements OnInit  {
     }
     this.loginData.userName = this.loginForm.value.email;
     this.loginData.password = this.loginForm.value.password;
-    console.log(this.loginForm.value);
     this.accountService.login(this.loginData).subscribe(resp =>{
+      if(resp.result.isSuccess){
+        this.toastr.success(resp.result.message);
+        this.router.navigateByUrl('/dashboard');
+      }else{
+        this.toastr.error(resp.result.message);
+      }
       console.log(resp ,"login data");
-      this.toastr.success("you are login successfully!!");
-      this.router.navigateByUrl('/dashboard');
+    },err =>{
+      this.toastr.error(err);
     });
   }
 }
