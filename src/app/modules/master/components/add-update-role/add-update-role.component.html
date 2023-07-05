@@ -1,0 +1,49 @@
+
+<div class="main-card mb-3 card custom_design">
+    <div class="card-body">
+        <h5 class="card-title">Add New Role</h5>
+        <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="exampleEmail11" class="">User ID</label>
+                    <select class="form-select form-control" aria-label="Default select example" formControlName="userId">
+                        <option selected>--User-Select--</option>
+                        <option value="1">User1</option>
+                        <option value="2">User2</option>
+                        <option value="3">User3</option>
+                    </select>
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="exampleEmail11" class="">Client ID</label>
+                    <select class="form-select form-control" aria-label="Default select example" formControlName="clientId">
+                        <option selected>--Client-Select--</option>
+                        <option value="1">Client1</option>
+                        <option value="2">Client2</option>
+                        <option value="3">Client3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="position-relative form-group">
+                    <label for="exampleEmail11" class="">Role Name</label>
+                    <input placeholder="Role Name" type="text" class="form-control" formControlName="roleName">
+                    <span class="field-validation-valid"
+                    *ngIf="roleForm.get('roleName')?.invalid && (roleForm.get('roleName')?.dirty || roleForm.get('roleName')?.touched)" class="error-message" >
+                    User Id is required.
+                </span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="d-flex btn_form mt-3">
+                    <button type="submit" class="btn btn-primary mr-3">Save</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

@@ -37,7 +37,7 @@
                 <ul class="vertical-nav-menu">
                     <li class="app-sidebar__heading">Dashboard</li>
                     <li>
-                        <a href="dashboard.html" class="mm-active">
+                        <a routerLink="/dashboard" class="mm-active">
                             <i class="metismenu-icon icofont-dashboard"></i>Home
                         </a>
                     </li>
@@ -66,30 +66,20 @@
                         <a href="#">
                             <i class="metismenu-icon icofont-file-alt font-22"></i>Report
                         </a>
-                    </li>
-                    <li class="app-sidebar__heading">Dropdown</li>
-                    <li>
+                    </li> 
+                     <li class="app-sidebar__heading">Permission</li>
+                    <li *ngFor="let role of userRole">
                         <a href="#">
                             <i class="metismenu-icon icofont-light-bulb"></i>
-                            Category
+                            {{ role.roleName }}
                             <i class="metismenu-state-icon icofont-rounded-down caret-left"></i>
                         </a>
-                        <ul class="mm-collapse">
-                            <li>
-                                <a href="apps-mailbox.html">
-                                    Sub Category 1
+                        <ul class="mm-collapse" *ngFor="let permission of role.rolePermissions">
+                            <li >
+                                <a routerLink="/add">
+                                    {{ permission.permissionName }}
                                 </a>
-                            </li>
-                            <li>
-                                <a href="apps-chat.html">
-                                    Sub Category 2
-                                </a>
-                            </li>
-                            <li>
-                                <a href="apps-faq-section.html">
-                                    Sub Category 3
-                                </a>
-                            </li>
+                            </li> 
                         </ul>
                     </li>
                 </ul>

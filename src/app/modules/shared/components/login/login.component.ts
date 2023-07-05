@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AccountService } from '../../services/account.service';
 import { ToastrService } from 'ngx-toastr';
 import { Login } from '../../modals/login';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit  {
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private authenticationService :AuthenticationService) {
    
   }
 
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit  {
     }
     this.loginData.userName = this.loginForm.value.email;
     this.loginData.password = this.loginForm.value.password;
-    this.accountService.login(this.loginData).subscribe(resp =>{
+    this.authenticationService.login(this.loginData.userName,this.loginData.password).subscribe(resp =>{
       if(resp.result.isSuccess){
         this.toastr.success(resp.result.message);
         this.router.navigateByUrl('/dashboard');

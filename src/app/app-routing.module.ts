@@ -6,6 +6,9 @@ import { Page404Component } from './modules/shared/components/page404/page404.co
 import { Page500Component } from './modules/shared/components/page500/page500.component';
 import { Role } from './_models/role';
 import { AuthGuard } from './_helpers/auth.guard';
+import { DeskboardComponent } from './modules/shared/components/deskboard/deskboard.component';
+import { AddUpdateRoleComponent } from './modules/master/components/add-update-role/add-update-role.component';
+import { RoleListComponent } from './modules/master/components/role-list/role-list.component';
 
 const routes: Routes = [
   {
@@ -18,8 +21,9 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent, // Use the MainLayoutComponent as the layout for authenticated pages
     children: [
-      { path: 'dashboard', component: LayoutComponent},
-
+      { path: 'dashboard', component: DeskboardComponent},
+       {path: 'add', component: AddUpdateRoleComponent,canActivate: [AuthGuard]},
+       {path : 'roleList',component: RoleListComponent, canActivate: [AuthGuard]}
     ],
   },
   {path:'404', component:Page404Component},

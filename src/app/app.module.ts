@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
@@ -9,17 +10,24 @@ import { ApplicantlistComponent } from './modules/core/applicantlist/applicantli
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { fakeBackendProvider } from './_helpers/fack-backend';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
+import { AddUpdateRoleComponent } from './modules/master/components/add-update-role/add-update-role.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RoleListComponent } from './modules/master/components/role-list/role-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApplicantlistComponent
+    ApplicantlistComponent,
+    AddUpdateRoleComponent,
+    RoleListComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({positionClass: 'toast-top-right'}),
   ],
   providers: [
