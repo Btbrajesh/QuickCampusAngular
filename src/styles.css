@@ -3,4 +3,5 @@
  @import './assets/css/custom.css';
 @import './assets/css/icofont.min.css';
 @import '~ngx-toastr/toastr';
+@import '~@fortawesome/fontawesome-free/css/fontawesome.css';
 /* @import './assets/scripts/main.js'; */

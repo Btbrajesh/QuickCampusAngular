@@ -4,3 +4,11 @@
     margin-top: 40px !important;
     margin-right: 130px !important;
 }
+
+.active-link {
+    color: green;
+  }
+  
+  .inactive-link {
+    color: red;
+  }

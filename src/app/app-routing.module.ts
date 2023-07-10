@@ -7,8 +7,8 @@ import { Page500Component } from './modules/shared/components/page500/page500.co
 import { Role } from './_models/role';
 import { AuthGuard } from './_helpers/auth.guard';
 import { DeskboardComponent } from './modules/shared/components/deskboard/deskboard.component';
-import { AddUpdateRoleComponent } from './modules/master/components/add-update-role/add-update-role.component';
-import { RoleListComponent } from './modules/master/components/role-list/role-list.component';
+import { AddUpdateRoleComponent } from './modules/master/components/roles/add-update-role/add-update-role.component';
+import { RoleListComponent } from './modules/master/components/roles/role-list/role-list.component';
 
 const routes: Routes = [
   {

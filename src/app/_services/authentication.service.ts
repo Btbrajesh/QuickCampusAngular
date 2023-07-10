@@ -20,14 +20,15 @@ export class AuthenticationService {
         this.user = this.userSubject.asObservable();
     }
 
-    public get userValue() {
-        return this.storedUser;
+    public get userValue(): any | null {
+        return this.userSubject.value;
     }
 
-    login(username: string, password: string) {
+    login(userName: string, password: string) {
         debugger;
-        return this.http.post<any>(`${environment.apiUrl}/Account/AdminLogin`, { username, password })
+        return this.http.post<any>(`${environment.apiUrl}/Account/AdminLogin`, { userName, password })
             .pipe(map(user => {
+                debugger;
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 if (user && user.result && user.result.data) {
                     const userData = user.result.data;

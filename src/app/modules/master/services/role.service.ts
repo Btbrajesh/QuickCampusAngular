@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { RoleRequestModal } from '../modals/rolerequest';
+import { RoleRequestModal } from '../modals/roleRequestModal';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +15,10 @@ export class RoleService {
 
     roleAddUpdate(roledata: RoleRequestModal): Observable<any> {
         return this.http.post(`${environment.apiUrl}/Role/roleAdd`, roledata);
+    }
+
+    getAllRole(): Observable<any>{
+        return this.http.get(`${environment.apiUrl}/Role/roleList`);
     }
 
 

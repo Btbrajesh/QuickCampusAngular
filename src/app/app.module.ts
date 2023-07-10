@@ -10,9 +10,10 @@ import { ApplicantlistComponent } from './modules/core/applicantlist/applicantli
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { fakeBackendProvider } from './_helpers/fack-backend';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { AddUpdateRoleComponent } from './modules/master/components/add-update-role/add-update-role.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { RoleListComponent } from './modules/master/components/role-list/role-list.component';
+import { AddUpdateRoleComponent } from './modules/master/components/roles/add-update-role/add-update-role.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RoleListComponent } from './modules/master/components/roles/role-list/role-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { RoleListComponent } from './modules/master/components/role-list/role-li
     SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
+    FormsModule,
     ToastrModule.forRoot({positionClass: 'toast-top-right'}),
   ],
   providers: [

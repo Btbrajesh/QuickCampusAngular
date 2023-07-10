@@ -17,6 +17,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     const user = this.authenticationService.userValue;
-    this.userRole = user.roleMasters;
+    if(user != null && user != undefined){
+      this.userRole = user.roleMasters;
+    }
   }
 }
