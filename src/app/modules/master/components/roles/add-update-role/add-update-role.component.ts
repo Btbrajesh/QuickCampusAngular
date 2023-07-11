@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoleService } from '../../../services/role.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ roleForm! :FormGroup;
     this.roleForm = this.fb.group({
       'userId':[0],
       'clientId':[0],
-      'roleName' :['', Validators.required]
+      'roleName' :['', [Validators.required,this.onlyCharactersValidator]]
     });
   }
 
@@ -45,4 +45,21 @@ roleForm! :FormGroup;
       this.toastr.error("Please enter value in required field");
     }
   }
+
+  onlyCharactersValidator(control: FormControl) {
+    const value = control.value;
+    const pattern = /^[A-Za-z]+$/; // Regular expression to match only characters
+    
+    if (!value) {
+      return null; // Skip validation if the field is empty
+    }
+    
+    if (pattern.test(value)) {
+      return null; // Valid, return null
+    } else {
+      return { onlyCharacters: true }; // Invalid, return an error object
+    }
+  }
+  
+  
 }

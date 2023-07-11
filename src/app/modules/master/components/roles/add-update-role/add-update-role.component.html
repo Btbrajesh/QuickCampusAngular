@@ -31,10 +31,12 @@
                 <div class="position-relative form-group">
                     <label for="exampleEmail11" class="">Role Name</label>
                     <input placeholder="Role Name" type="text" class="form-control" formControlName="roleName">
-                    <span class="field-validation-valid"
-                    *ngIf="roleForm.get('roleName')?.invalid && (roleForm.get('roleName')?.dirty || roleForm.get('roleName')?.touched)" class="error-message" >
-                    User Id is required.
-                </span>
+                  <span *ngIf="roleForm.get('roleName')?.hasError('required') && (roleForm.get('roleName')?.dirty || roleForm.get('roleName')?.touched)" class="error-message">
+                    Role Name is required.
+                  </span>
+                  <span *ngIf="roleForm.get('roleName')?.hasError('onlyCharacters')" class="error-message">
+                    Only characters are allowed.
+                  </span>
                 </div>
             </div>
             <div class="col-md-12">

@@ -13,12 +13,14 @@ export class SidebarComponent implements OnInit {
   userRole!: AuthDataResponse[];
 
   constructor(private authenticationService :AuthenticationService){
-  }
-
-  ngOnInit(): void {
     const user = this.authenticationService.userValue;
     if(user != null && user != undefined){
       this.userRole = user.roleMasters;
+      console.log(this.userRole);
     }
+  }
+
+  ngOnInit(): void {
+   
   }
 }

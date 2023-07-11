@@ -26,6 +26,11 @@ const routes: Routes = [
        {path : 'roleList',component: RoleListComponent, canActivate: [AuthGuard]}
     ],
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('../app/modules/core/core.module').then((m) => m.CoreModule),
+    data: {role: 'Manager'},
+  },
   {path:'404', component:Page404Component},
   {path: '500', component: Page500Component},
    {path: '**', redirectTo: '404'}

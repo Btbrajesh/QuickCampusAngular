@@ -14,11 +14,12 @@ import { AddUpdateRoleComponent } from './modules/master/components/roles/add-up
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoleListComponent } from './modules/master/components/roles/role-list/role-list.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CoreRoutingModule } from './modules/core/core-routing.module';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ApplicantlistComponent,
     AddUpdateRoleComponent,
     RoleListComponent
   ],
@@ -26,7 +27,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    CoreRoutingModule,
     SharedModule,
+    DataTablesModule,
     HttpClientModule,
     ReactiveFormsModule,
     NgxPaginationModule,
