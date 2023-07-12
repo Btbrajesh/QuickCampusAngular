@@ -4,6 +4,7 @@
 @import './assets/css/icofont.min.css';
 @import '~ngx-toastr/toastr';
 @import '~@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '~font-awesome/css/font-awesome.css';
 /* @import './assets/scripts/main.js'; */
 .basic:before {
     content: '';

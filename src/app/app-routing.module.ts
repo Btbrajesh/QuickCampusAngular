@@ -22,7 +22,7 @@ const routes: Routes = [
     component: LayoutComponent, // Use the MainLayoutComponent as the layout for authenticated pages
     children: [
       { path: 'dashboard', component: DeskboardComponent},
-       {path: 'add', component: AddUpdateRoleComponent,canActivate: [AuthGuard]},
+       {path: 'addRole', component: AddUpdateRoleComponent,canActivate: [AuthGuard]},
        {path : 'roleList',component: RoleListComponent, canActivate: [AuthGuard]}
     ],
   },
@@ -37,7 +37,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

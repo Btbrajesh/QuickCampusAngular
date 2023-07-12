@@ -12,3 +12,10 @@
   .inactive-link {
     color: red;
   }
+
+  .custom_button{
+    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
