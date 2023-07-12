@@ -65,7 +65,7 @@ export class SidebarComponent implements OnInit {
         this.quickCampusItems.text = 'Super Admin';                 
         this.quickCampusItems.icon = 'fa fa-university';
         this.quickCampusItems.label = 'label label-info';
-        this.quickCampusItems.link = `/add`;
+        this.quickCampusItems.link = `/addRole`;
     }
     this.sidebarMenu.push(this.quickCampusItems);
 

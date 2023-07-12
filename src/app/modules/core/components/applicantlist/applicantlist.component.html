@@ -20,7 +20,7 @@
                         <td>{{ applicant.higestQualification }}</td>
                         <td>{{ applicant.phoneNumber }}</td>
                         <td>
-                            <a (click)="editUser(applicant)" class="action-link"><i class="fa fa-edit"></i></a>
+                            <a (click)="editUser(applicant)" class="action-link"><i class="fa fa-edit"></i></a>&nbsp;
                             <a (click)="toggleActive(applicant)"
                                 [ngClass]="{ 'active-link': applicant.isActive, 'inactive-link': !applicant.isActive }">{{
                                     applicant.isActive ? 'Active' : 'Inactive' }}</a>
