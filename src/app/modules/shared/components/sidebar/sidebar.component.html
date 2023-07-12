@@ -74,8 +74,8 @@
                             {{ role.roleName }}
                             <i class="metismenu-state-icon icofont-rounded-down caret-left"></i>
                         </a>
-                        <ul class="mm-collapse" *ngFor="let permission of role.rolePermissions">
-                            <li >
+                        <ul class="mm-collapse" *ngIf="userRoleLoaded" >
+                            <li *ngFor="let permission of role.rolePermissions" >
                                 <a routerLink="/add">
                                     {{ permission.permissionName }}
                                 </a>

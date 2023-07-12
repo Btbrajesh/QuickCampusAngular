@@ -10,6 +10,8 @@ export class AuthenticationService {
     private userSubject: BehaviorSubject<any | null>;
     public user: Observable<any | null>;
     storedUser:any;
+    canActivateProtectedRoutes$: any;
+    identityClaims: any;
 
     constructor(
         private router: Router,

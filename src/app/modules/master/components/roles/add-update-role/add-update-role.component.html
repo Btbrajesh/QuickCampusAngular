@@ -37,6 +37,9 @@
                   <span *ngIf="roleForm.get('roleName')?.hasError('onlyCharacters')" class="error-message">
                     Only characters are allowed.
                   </span>
+                  <span *ngIf="roleForm.get('roleName')?.hasError('maxlength')" class="error-message">
+                    Maximum length exceeded (20 characters maximum).
+                  </span>
                 </div>
             </div>
             <div class="col-md-12">
@@ -49,3 +52,7 @@
     </form>
     </div>
 </div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-scale-circle">
+    <p class="basic"></p>
+</ngx-spinner>

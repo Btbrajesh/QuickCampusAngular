@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RoleService } from '../../../services/role.service';
 import { RoleResponseList } from '../../../modals/roleResponseModal';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-role-list',
@@ -14,13 +15,15 @@ export class RoleListComponent implements OnInit {
   isLength!: boolean;
   selectAll: boolean = false;
 
-  constructor(private roleService:RoleService){
+  constructor(private roleService:RoleService,private spinnerService: NgxSpinnerService){
 
   }
 
   ngOnInit(): void {
+    this.spinnerService.show();
 this.roleService.getAllRole().subscribe(resp =>{
   console.log(resp);
+  this.spinnerService.hide();
   this.isLength = true;
   if(resp.length>0){
     this.isLength = false;

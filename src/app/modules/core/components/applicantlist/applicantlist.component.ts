@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
-import { ApplicantService } from '../services/applicant.service';
+import { ApplicantService } from '../../services/applicant.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-applicantlist',
@@ -24,7 +25,7 @@ export class ApplicantlistComponent implements OnInit {
   applicantList :any[]=[];
   p: number = 1;
  
-  constructor(private applicantService: ApplicantService,private router: Router){
+  constructor(private applicantService: ApplicantService,private router: Router,private spinnerService: NgxSpinnerService){
    
   }
 
@@ -33,15 +34,17 @@ ngOnInit(): void {
 }
 
 getApplicantList(){
+  this.spinnerService.show();
   this.applicantService.getApplicantList().subscribe(resp =>{
-    console.log(resp);
     if(resp.isSuccess){
+      this.spinnerService.hide();
       this.applicantList = resp.data;
       this.applicantList.map((applicant) => {
         applicant.fullName = `${applicant.firstName} ${applicant.lastName}`;
       });
     }
   },err =>{
+    this.spinnerService.hide();
     console.log("Error in applicant list",err);
   })
 }

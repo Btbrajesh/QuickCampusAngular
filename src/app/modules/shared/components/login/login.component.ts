@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit  {
   loading:boolean=false;
   submitted = false;
   error = '';
+  loginInFlight: any;
   loginData: { userName: string, password: string } = { userName: '', password: '' };
 
   constructor(private formBuilder: FormBuilder,
@@ -42,18 +43,25 @@ export class LoginComponent implements OnInit  {
     if (this.loginForm.invalid) {
               return;
     }
+    if (this.loginInFlight) {
+      console.log('request is in flight...');
+      return;
+    }
     this.loginData.userName = this.loginForm.value.email;
     this.loginData.password = this.loginForm.value.password;
-    this.authenticationService.login(this.loginData.userName,this.loginData.password).subscribe(resp =>{
+    this.loginInFlight = this.authenticationService.login(this.loginData.userName,this.loginData.password).subscribe(resp =>{
       if(resp.result.isSuccess){
+        this.loginInFlight = null;
         this.toastr.success(resp.result.message);
         this.router.navigateByUrl('/dashboard');
       }else{
+        this.loginInFlight = null;
         this.toastr.error(resp.result.message);
       }
       console.log(resp ,"login data");
     },err =>{
       this.toastr.error(err);
+      this.loginInFlight = null;
     });
   }
 }
